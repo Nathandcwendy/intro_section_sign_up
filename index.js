@@ -63,18 +63,18 @@ const passwordObj = {
 
 const inputObjsArray = [firstNameObj, lastNameObj, emailObj, passwordObj];
 
-const validateInput = ({ input, control, info, empty, regex }) => {
+const validateInput = ({ input, control, info, empty, regex }, e) => {
   if (input.value) {
     if (!regex.test(input.value)) {
       control.classList.add("error");
       control.lastElementChild.style.display = "flex";
       control.lastElementChild.innerText = info;
-      if (regex === EMAIL_REGEX) {
+      if (regex === EMAIL_REGEX && e?.type === "blur") {
         control.firstElementChild.value = "";
         control.firstElementChild.placeholder = "email@example.com";
         control.classList.add("visible");
       }
-      regex === EMAIL_REGEX || regex === PASSWORD_REGEX
+      regex === PASSWORD_REGEX && e?.type === "blur"
         ? (control.firstElementChild.value = "")
         : false;
       return false;
@@ -112,8 +112,8 @@ const checkInput = ({ input, control, regex }) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  inputObjsArray.forEach((inputObj) => validateInput(inputObj));
-  const isAnyInvalid = inputObjsArray.find(
+  inputObjsArray.forEach((inputObj) => validateInput(inputObj, e));
+  const isAnyInvalid = inputObjsArray.filter(
     (inputObj) => !validateInput(inputObj)
   );
   if (!isAnyInvalid) {
@@ -132,7 +132,14 @@ form.addEventListener("submit", (e) => {
       .then((response) => response.json())
       .then((json) => console.log(json));
   } else {
-    isAnyInvalid.input.focus();
+    const inputToFocus = isAnyInvalid.find(
+      (invalid) => document.activeElement === invalid.input
+    );
+    if (inputToFocus) {
+      inputToFocus.input.focus();
+    } else {
+      isAnyInvalid.find((inputObj) => !validateInput(inputObj)).input.focus();
+    }
   }
 });
 
@@ -150,6 +157,6 @@ inputObjsArray.forEach((inputObj) => {
     checkInput(inputObj);
   });
   inputObj.input.addEventListener("blur", (e) => {
-    validateInput(inputObj);
+    validateInput(inputObj, e);
   });
 });
