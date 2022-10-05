@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+:root {
+  /* Primary */
+  --Red: hsl(0, 100%, 74%);
+  --Green: hsl(154, 59%, 51%);
+  /* Accent */
+  --Blue: hsl(248, 32%, 49%);
+  /* Neutral */
+  --darkBlue: hsl(249, 10%, 26%);
+  --grayishBlue: hsl(246, 25%, 77%);
+  --fontsize: 16px;
+  --borderRadius: 7px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-size: var(--fontsize);
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url(./images/bg-intro-desktop.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--Red);
+}
+
+.container {
+  width: 80vw;
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  position: relative;
+}
+
+header {
+  flex: 1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 2rem;
+}
+
+header h1 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-size: 50px;
+  line-height: 1.2;
+}
+
+header p {
+  line-height: 1.7;
+}
+
+main {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+div.trial {
+  padding: 1.25rem 1rem;
+  background-color: var(--Blue);
+  border-radius: var(--borderRadius);
+  margin-bottom: 1.5rem;
+  box-shadow: 0px 7px 0px rgba(0, 0, 0, 0.1);
+}
+
+div.trial p {
+  text-align: center;
+  font-weight: 500;
+}
+
+div.trial p a {
+  color: hsl(248, 32%, 89%);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+form {
+  background-color: white;
+  border-radius: var(--borderRadius);
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 1.25rem;
+  box-shadow: 0px 8px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  position: relative;
+}
+
+.form-control img {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.form-control.error img {
+  display: inline;
+}
+
+.form-control i {
+  display: none;
+  justify-content: flex-end;
+  text-align: right;
+  color: var(--Red);
+  padding: 7px 0;
+  font-weight: 500;
+}
+
+.form-control.error i {
+  display: flex;
+}
+
+input {
+  padding: 1rem 2rem;
+  width: 100%;
+  border-radius: var(--borderRadius);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+}
+
+input:focus {
+  outline: 2px solid black;
+}
+
+input.opacity::placeholder {
+  opacity: 0.3;
+}
+
+input::placeholder {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+input:focus::placeholder {
+  color: black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+  box-shadow: 0 0 0 30px white inset;
+}
+
+.form-control.error input::placeholder {
+  visibility: hidden;
+}
+
+.form-control.error input[name*="email"]::placeholder,
+.form-control.error input[name*="Password"]::placeholder {
+  color: var(--Red);
+  opacity: 0.8;
+}
+
+.form-control.visible input::placeholder {
+  visibility: visible;
+  font-size: inherit;
+}
+
+.form-control.good input {
+  border: 3px solid var(--Green);
+}
+
+.form-control.good input:focus {
+  outline: 1px solid var(--Green);
+}
+
+.form-control.error input {
+  border: 3px solid var(--Red);
+}
+
+.form-control.error input:focus {
+  outline: 1px solid var(--Red);
+}
+
+button {
+  padding: 1rem 0 calc(1rem - 4px);
+  background-color: var(--Green);
+  border: none;
+  border-radius: var(--borderRadius);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--fontsize);
+  box-shadow: 0px 4px 0 hsl(153, 47%, 43%);
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: hsl(154, 59%, 61%);
+  cursor: pointer;
+  box-shadow: 0px 4px 0 hsl(154, 59%, 50%);
+}
+
+small {
+  font-size: 11px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+small a {
+  color: var(--Red);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+footer {
+  position: absolute;
+  bottom: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Media Queries */
+@media (max-width: 1275px) {
+  .container {
+    width: 95vw;
+  }
+}
+
+@media (max-height: 690px) {
+  body {
+    height: 100vmax;
+  }
+}
+
+@media (max-width: 999px) {
+  .container {
+    width: 95vw;
+  }
+
+  header {
+    padding: 0 0 1rem;
+  }
+
+  header h1 {
+    font-size: 40px;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  input {
+    padding: 1rem 1.5rem;
+  }
+
+  /* .form-control.visible input::placeholder {
+    font-size: 16px;
+    word-wrap: break-word;
+    position: absolute;
+    left: 0.4rem;
+  } */
+
+  .form-control i {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 770px) {
+  body {
+    height: auto;
+    padding: 3.5rem 0 5rem;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 80vw;
+    gap: 2rem;
+  }
+
+  header {
+    align-items: center;
+    padding: 0;
+  }
+
+  header h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  header p {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* .form-control.visible input::placeholder {
+    font-size: 16px;
+    word-wrap: break-word;
+    position: absolute;
+    left: 0.75rem;
+  } */
+
+  .form-control i {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 14px;
+    bottom: -3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 100vw;
+    padding: 0 2rem;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  form {
+    padding: 2rem;
+  }
+
+  .form-control.error img {
+    height: 1.5rem;
+    width: auto;
+    top: 16px;
+  }
+
+  input {
+    padding: 1rem;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 0 2rem;
+    bottom: -4rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  footer {
+    bottom: -4.5rem;
+  }
+}
+
+@media (max-width: 280px) {
+  body {
+    padding: 5rem 0;
+  }
+
+  button {
+    letter-spacing: 0;
+  }
+
+  footer {
+    font-size: 12px;
+    bottom: -5rem;
+  }
+}
