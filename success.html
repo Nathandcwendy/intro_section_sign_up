@@ -104,13 +104,10 @@
     </div>
     <script>
       const goBackHome = function (e) {
-        e.classList.remove("tryAgain");
         e.classList.toggle("active");
-
         setTimeout(() => {
-          e.classList.toggle("active");
-          e.classList.add("tryAgain");
-        }, 250);
+          e.classList.remove("active");
+        }, 300);
         const protocol = window.location.protocol;
         const hostName = window.location.hostname;
         const port = window.location.port;

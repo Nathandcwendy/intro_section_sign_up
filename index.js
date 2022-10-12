@@ -120,12 +120,10 @@ form.addEventListener("submit", (e) => {
     (inputObj) => !validateInput(inputObj)
   );
   if (isAnyInvalid.length === 0) {
-    submitButton.classList.remove("tryAgain");
     submitButton.classList.toggle("active");
     setTimeout(() => {
-      submitButton.classList.toggle("active");
-      submitButton.classList.add("tryAgain");
-    }, 250);
+      submitButton.classList.remove("active");
+    }, 300);
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -146,12 +144,11 @@ form.addEventListener("submit", (e) => {
     const successPage = `${protocol}//${hostName}:${port}/success.html`;
     window.location.replace(successPage);
   } else {
-    submitButton.classList.remove("tryAgain");
     submitButton.classList.remove("active");
     submitButton.classList.add("inValid");
     setTimeout(() => {
       submitButton.classList.remove("inValid");
-    }, 250);
+    }, 400);
     const inputToFocus = isAnyInvalid.find(
       (invalid) => document.activeElement === invalid.input
     );

@@ -145,17 +145,17 @@ body {
 
 .Button:hover {
   cursor: pointer;
-  filter: brightness(1.2);
 }
 
 .Button.active {
-  filter: brightness(0.8);
-  transform: scale(0.8);
-  animation: zoomOut 0.5s ease-in-out 0s 1 forwards;
+  animation: zoomOut 0.3s ease-in-out 0s 1,
+    zoomIn 0.3s ease-in-out 0.3s 1 forwards;
 }
 
 .Button.tryAgain {
-  animation: zoomIn 0.5s ease-in-out 0s 1 forwards;
+  filter: brightness(1);
+  transform: scale(1);
+  animation: zoomIn 0.5s ease-in-out 0.5s 1 forwards;
 }
 
 @keyframes zoomIn {
