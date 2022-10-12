@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+:root {
+  /* Primary */
+  --Red: hsl(0, 100%, 74%);
+  --Green: hsl(154, 59%, 51%);
+  /* Accent */
+  --Blue: hsl(248, 32%, 49%);
+  /* Neutral */
+  --darkBlue: hsl(249, 10%, 26%);
+  --grayishBlue: hsl(246, 25%, 77%);
+  --fontsize: 16px;
+  --borderRadius: 7px;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+h1 {
+  color: white;
+}
+
+button {
+  border: none;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-image: url(./images/bg-intro-desktop.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--Red);
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.Header h1 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-size: 50px;
+  line-height: 1.2;
+  text-align: center;
+  background: -webkit-linear-gradient(
+    right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fa-rocket {
+  margin-left: 1rem;
+}
+
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.List {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.List__Item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.fa-stack.small {
+  font-size: 0.9rem;
+}
+
+.fa-circle {
+  background: -webkit-linear-gradient(
+    right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2em;
+}
+
+.fa-check {
+  color: white;
+  font-size: 1.2em;
+  margin-top: 0.05rem;
+  font-weight: 800;
+}
+
+.Span__Text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.Button {
+  background: linear-gradient(
+    to right bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  width: 50%;
+  padding: 0.5rem;
+  font-size: calc(var(--fontsize) * 1.1);
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  transition: 0.2s ease-in-out;
+}
+
+.Button:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}
+
+.Button.active {
+  filter: brightness(0.8);
+  transform: scale(0.8);
+  animation: zoomOut 0.5s ease-in-out 0s 1 forwards;
+}
+
+.Button.tryAgain {
+  animation: zoomIn 0.5s ease-in-out 0s 1 forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  font-size: 16px;
+}
+
+@media (max-height: 690px) {
+  body {
+    height: 100vmax;
+  }
+}
+
+@media (max-width: 999px) {
+  .Header h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 770px) {
+  body {
+    height: auto;
+    padding: 3.5rem 0 5rem;
+  }
+
+  footer {
+    font-size: 14px;
+    bottom: -3rem;
+  }
+
+  .Span__Text {
+    font-size: 14px;
+  }
+
+  :root {
+    --fontsize: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 95vw;
+  }
+
+  .Header h1 {
+    font-size: 30px;
+  }
+
+  .fa-stack.small {
+    font-size: 0.8rem;
+  }
+
+  footer {
+    padding: 0 2rem;
+    bottom: -4rem;
+  }
+}
+
+@media (max-width: 350px) {
+  body {
+    padding: 5rem 0;
+  }
+
+  .Header h1 {
+    font-size: 25px;
+  }
+
+  .Span__Text {
+    font-size: 12px;
+  }
+
+  footer {
+    bottom: -4.5rem;
+  }
+}
+
+@media (max-width: 280px) {
+  footer {
+    font-size: 12px;
+    bottom: -5rem;
+  }
+
+  .Span__Text {
+    font-size: 12px;
+  }
+
+  :root {
+    --fontsize: 12px;
+  }
+}

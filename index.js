@@ -1,5 +1,6 @@
-let form = document.getElementById("form");
-var inputs = document.querySelectorAll("input");
+const form = document.getElementById("form");
+const inputs = document.querySelectorAll("input");
+const submitButton = document.querySelector("#submitButton");
 
 const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
@@ -92,6 +93,7 @@ const validateInput = ({ input, control, info, empty, regex }, e) => {
     control.lastElementChild.innerText = empty;
     control.classList.add("error");
     control.lastElementChild.style.display = "flex";
+    return false;
   }
 };
 
@@ -99,13 +101,14 @@ const checkInput = ({ input, control, regex }) => {
   if (input.value) {
     if (regex.test(input.value)) {
       control.classList.remove("error");
-      // control.firstElementChild.placeholder = ""
       control.lastElementChild.style.display = "";
       control.classList.add("good");
+      return true;
     } else {
       control.classList.remove("good");
       control.lastElementChild.style.display = "";
       control.classList.remove("error");
+      return false;
     }
   }
 };
@@ -116,7 +119,13 @@ form.addEventListener("submit", (e) => {
   const isAnyInvalid = inputObjsArray.filter(
     (inputObj) => !validateInput(inputObj)
   );
-  if (!isAnyInvalid) {
+  if (isAnyInvalid.length === 0) {
+    submitButton.classList.remove("tryAgain");
+    submitButton.classList.toggle("active");
+    setTimeout(() => {
+      submitButton.classList.toggle("active");
+      submitButton.classList.add("tryAgain");
+    }, 250);
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -131,14 +140,27 @@ form.addEventListener("submit", (e) => {
     })
       .then((response) => response.json())
       .then((json) => console.log(json));
+    const protocol = window.location.protocol;
+    const hostName = window.location.hostname;
+    const port = window.location.port;
+    const successPage = `${protocol}//${hostName}:${port}/success.html`;
+    window.location.replace(successPage);
   } else {
+    submitButton.classList.remove("tryAgain");
+    submitButton.classList.remove("active");
+    submitButton.classList.add("inValid");
+    setTimeout(() => {
+      submitButton.classList.remove("inValid");
+    }, 250);
     const inputToFocus = isAnyInvalid.find(
       (invalid) => document.activeElement === invalid.input
     );
     if (inputToFocus) {
       inputToFocus.input.focus();
     } else {
-      isAnyInvalid.find((inputObj) => !validateInput(inputObj)).input.focus();
+      isAnyInvalid
+        .filter((invalid) => validateInput(invalid) === false)[0]
+        .input.focus();
     }
   }
 });

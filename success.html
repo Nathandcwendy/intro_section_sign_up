@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/89b85553de.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./success.css" />
+    <style>
+      .attribution {
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+      .attribution p {
+        width: 100%;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <title>Success</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="Header">
+        <h1 class="login-header">
+          Login Successful!<i class="fa-solid fa-rocket"></i>
+        </h1>
+      </header>
+      <main class="Main">
+        <ul class="List">
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text"
+              >Name contains more than 2 characters</span
+            >
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text">Name does not contain any digits</span>
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text">Email is a valid email address</span>
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text">Password has at least 8 characters</span>
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text"
+              >Password has at least one uppercase letter</span
+            >
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text"
+              >Password has at least one lowercase letter</span
+            >
+          </li>
+          <li class="List__Item">
+            <span class="fa-stack small"
+              ><i class="fa-solid fa-stack-2x fa-circle"></i
+              ><i class="fa-solid fa-stack-1x fa-check"></i></span
+            ><span class="Span__Text">Password has at least one digit</span>
+          </li>
+        </ul>
+        <button class="Button" onclick="goBackHome(this)">Go Back</button>
+      </main>
+      <footer>
+        <p class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a href="https://www.frontendmentor.io/profile/Nathandcwendy">Nate</a
+          >.
+        </p>
+      </footer>
+    </div>
+    <script>
+      const goBackHome = function (e) {
+        e.classList.remove("tryAgain");
+        e.classList.toggle("active");
+
+        setTimeout(() => {
+          e.classList.toggle("active");
+          e.classList.add("tryAgain");
+        }, 250);
+        const protocol = window.location.protocol;
+        const hostName = window.location.hostname;
+        const port = window.location.port;
+        const homePage = `${protocol}//${hostName}:${port}/index.html`;
+        window.location.replace(homePage);
+      };
+    </script>
+  </body>
+</html>
