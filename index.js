@@ -120,7 +120,7 @@ form.addEventListener("submit", (e) => {
     (inputObj) => !validateInput(inputObj)
   );
   if (isAnyInvalid.length === 0) {
-    submitButton.classList.toggle("active");
+    submitButton.classList.add("active");
     setTimeout(() => {
       submitButton.classList.remove("active");
     }, 700);
