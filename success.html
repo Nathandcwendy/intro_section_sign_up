@@ -107,12 +107,12 @@
         e.classList.toggle("active");
         setTimeout(() => {
           e.classList.remove("active");
-        }, 300);
+        }, 700);
         const protocol = window.location.protocol;
         const hostName = window.location.hostname;
         const port = window.location.port;
         const homePage = `${protocol}//${hostName}:${port}/index.html`;
-        window.location.replace(homePage);
+        // window.location.replace(homePage);
       };
     </script>
   </body>

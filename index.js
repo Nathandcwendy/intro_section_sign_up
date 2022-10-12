@@ -123,7 +123,7 @@ form.addEventListener("submit", (e) => {
     submitButton.classList.toggle("active");
     setTimeout(() => {
       submitButton.classList.remove("active");
-    }, 300);
+    }, 700);
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
