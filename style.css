@@ -140,10 +140,13 @@ input {
   border-radius: var(--borderRadius);
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 600;
+  font-size: var(--fontsize);
 }
 
 input:focus {
-  outline: 2px solid black;
+  /* outline: 2px solid black; */
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 input.opacity::placeholder {
@@ -187,7 +190,8 @@ input:-webkit-autofill:focus {
 }
 
 .form-control.good input:focus {
-  outline: 1px solid var(--Green);
+  /* outline: 1px solid var(--Green); */
+  box-shadow: var(--Green) 0px 1px 4px, var(--Green) 0px 0px 0px 1px;
 }
 
 .form-control.error input {
@@ -195,7 +199,8 @@ input:-webkit-autofill:focus {
 }
 
 .form-control.error input:focus {
-  outline: 1px solid var(--Red);
+  /* outline: 1px solid var(--Red); */
+  box-shadow: var(--Red) 0px 1px 4px, var(--Red) 0px 0px 0px 1px;
 }
 
 button {
