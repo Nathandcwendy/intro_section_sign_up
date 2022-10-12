@@ -123,7 +123,9 @@ form.addEventListener("submit", (e) => {
     submitButton.classList.add("active");
     setTimeout(() => {
       submitButton.classList.remove("active");
+      console.log(submitButton.classList);
     }, 700);
+    console.log(submitButton.classList);
     fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       body: JSON.stringify({
@@ -142,7 +144,7 @@ form.addEventListener("submit", (e) => {
     const hostName = window.location.hostname;
     const port = window.location.port;
     const successPage = `${protocol}//${hostName}:${port}/success.html`;
-    // window.location.replace(successPage);
+    window.location.replace(successPage);
   } else {
     submitButton.classList.remove("active");
     submitButton.classList.add("inValid");
