@@ -142,7 +142,7 @@ form.addEventListener("submit", (e) => {
     const hostName = window.location.hostname;
     const port = window.location.port;
     const successPage = `${protocol}//${hostName}:${port}/success.html`;
-    window.location.replace(successPage);
+    // window.location.replace(successPage);
   } else {
     submitButton.classList.remove("active");
     submitButton.classList.add("inValid");
