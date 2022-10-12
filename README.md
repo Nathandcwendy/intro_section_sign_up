@@ -47,6 +47,7 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Vanilla JS
+- Animate.css
 
 ### What I learned
 
@@ -65,6 +66,10 @@ I hope to have more practice with other input types for forms such as `file`, `d
 - [Clientside Form Validation MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) - This helped me understand Clientside Form Validation Better.
 - [Great Platform FOr Testing Regex](https://regexr.com/) - This is a platform where i tested some regex for a custom password and email format.
 
+- [Great Place To Get Cool Fonts](https://fontawesome.com/)
+
+- [Great Place to FInd Easy To Use CSS3 Animations](https://animate.style/)
+
 ## Author
 
 - Frontend Mentor - [@Nathandcwendy](https://www.frontendmentor.io/profile/Nathandcwendy)
@@ -72,4 +77,8 @@ I hope to have more practice with other input types for forms such as `file`, `d
 
 ## Acknowledgments
 
-Special Thanks To _MDN_ for provideing well written documentations that help developers like myself write better code.
+Special Thanks To [MDN](https://developer.mozilla.org/en-US/) for provideing well written documentations that help developers like myself write better code.
+
+Thanks Daniel Eden and Friends for creating an easy to use CSS animations library.
+
+Thanks Font Awesome Creators and Contributors.
