@@ -148,7 +148,7 @@ body {
 }
 
 .Button.active {
-  animation: 0.4s ease-in-out 0s zoomOut, 0.3s ease-in-out 0.4s zoomIn;
+  animation: 0.7s linear 0s zoomOut, 0.3s ease-in-out 0.7s zoomIn;
 }
 
 @keyframes zoomIn {

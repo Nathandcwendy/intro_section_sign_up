@@ -203,6 +203,12 @@ input:-webkit-autofill:focus {
   box-shadow: var(--Red) 0px 1px 4px, var(--Red) 0px 0px 0px 1px;
 }
 
+.Input__Label {
+  position: absolute;
+  top: 0;
+  left: -999999px;
+}
+
 button {
   padding: 1rem 0 calc(1rem - 4px);
   background-color: var(--Green);
@@ -221,10 +227,8 @@ button:hover {
 }
 
 button.active {
-  animation: 0.4s ease-in-out 0s zoomOut, 0.3s ease-in-out 0.4s zoomIn;
+  animation: 0.7s ease-in-out 0s zoomOut, 0.3s ease-in-out 0.7s zoomIn;
 }
-
-/* zoomIn 0.3s ease-in-out 0.4s 1s */
 
 button.inValid {
   animation: headShake 0.4s ease-in-out 0s 1 forwards;
